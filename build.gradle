@@ -1,0 +1,78 @@
+ext {
+  guavaVersion = "23.0"
+  lombokVersion = "1.16.18"
+  dropWizardVersion = "1.1.4"
+  junitVersion = "4.12"
+}
+
+buildscript {
+  repositories {
+    // Which websites to look for the Gradle dependencies to download
+    jcenter()
+  }
+  dependencies {
+    // For building the entire project, use the shadow Gradle plugin
+    // Shadow is used to take all of your dependencies and turn them into
+    // a single .jar file which you can run and execute
+    classpath "com.github.jengelman.gradle.plugins:shadow:2.0.1"
+  }
+}
+
+// All projects (including the root project as specified in
+// ./settings.gradle will have these settings
+allprojects {
+  repositories {
+    mavenCentral()
+  }
+
+  // Assume every project is a java project since Gradle supports more than
+  // just Java
+  apply plugin: "java"
+
+  // Use Java 8 as the source version to build with, and the goal/target version
+  sourceCompatibility = "1.8"
+  targetCompatibility = "1.8"
+}
+
+// All projects, but excludes the root project
+subprojects {
+  group = "io.aaronbatilo.dropwizard-template"
+}
+
+// Configuration for the project that's in the folder ./dropwizard-template
+project(":dropwizard-template") {
+  // Make this project shadow compatible
+  apply plugin: "com.github.johnrengelman.shadow"
+
+  // For shadow to work, you need to use the application plugin
+  // The application plugin lets you define mainClassName which shadow will
+  // read, to understand where your project starts.
+  apply plugin: "application"
+
+  // Name of the file to start with. If you have a package name, use the fully
+  // qualified package name here.
+  mainClassName = "DropwizardApplication"
+
+  // Configurations for what the shadow plugin will create
+  shadowJar {
+    // The name of the file to create
+    archiveName = "root.jar"
+    // Where to put it, in this case, inside the current project directory
+    destinationDir projectDir
+  }
+
+  dependencies {
+    // Guava has a bunch of nice to have functions that make things easier
+    compile "com.google.guava:guava:$guavaVersion"
+
+    // Lombok has some annotations that can save some time
+    compile "org.projectlombok:lombok:$lombokVersion"
+
+    // Dropwizard is the web server. It handles receiving and responding to
+    // requests and such
+    compile "io.dropwizard:dropwizard-core:$dropWizardVersion"
+
+    // JUnit is a unit testing framework
+    testCompile "junit:junit:$junitVersion"
+  }
+}

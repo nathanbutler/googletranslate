@@ -1,0 +1,18 @@
+*.bin
+*.swp
+*.class
+*.DS_Store
+
+# Package Files #
+*.war
+*.ear
+*.jar
+
+build/
+classes/
+
+.gradle/
+*.iml
+.idea/
+out
+*~
