@@ -29,6 +29,9 @@ allprojects {
   // just Java
   apply plugin: "java"
 
+  //Put in the idea plugin
+  apply plugin: 'idea'
+
   // Use Java 8 as the source version to build with, and the goal/target version
   sourceCompatibility = "1.8"
   targetCompatibility = "1.8"
@@ -40,7 +43,8 @@ subprojects {
 }
 
 // Configuration for the project that's in the folder ./dropwizard-template
-project(":dropwizard-template") {
+//project(":dropwizard-template") {
+project(":googletranslaterepeater") {
   // Make this project shadow compatible
   apply plugin: "com.github.johnrengelman.shadow"
 
@@ -71,6 +75,12 @@ project(":dropwizard-template") {
     // Dropwizard is the web server. It handles receiving and responding to
     // requests and such
     compile "io.dropwizard:dropwizard-core:$dropWizardVersion"
+
+    //Google Translate API 
+    compile 'com.google.cloud:google-cloud:0.33.0-alpha'
+
+    //Json Simple
+    compile 'com.googlecode.json-simple'
 
     // JUnit is a unit testing framework
     testCompile "junit:junit:$junitVersion"

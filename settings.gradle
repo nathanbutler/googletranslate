@@ -1,6 +1,8 @@
 // The name of the project which is the root project
-rootProject.name = 'dropwizard-template'
+rootProject.name = 'googletranslaterepeater'
+//rootProject.name = 'dropwizard-template'
 
 // A comma separated list of all the projects (aka folders) to include when you
 // compile
-include "dropwizard-template"
+include "googletranslaterepeater"
+//include "dropwizard-template"
