@@ -1,8 +1,6 @@
 # Google Translate repeater
 
-I like using Dropwizard as my http server as choice. I use it a lot and every
-time, I copy common files from other projects. I figure I might as well make a
-template for getting started.
+Using Drop Wizard Google Tranlsate API I am able to take a phrase and run it through the translator many times
 
 ## Getting Started
 
