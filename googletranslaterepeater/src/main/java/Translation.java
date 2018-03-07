@@ -14,7 +14,7 @@ public class Translation {
      * @param times Int - Number of times they want to run it through the translator
      * @return iterationList - The JSON list that is written with the results
      */
-    public JSONArray repeat2 (String input, int times) {
+    public JSONArray iterateTranslate (String input, int times) {
         JSONArray iterationList = new JSONArray();
         languageReader randLang = new languageReader();
         Random rand = new Random();
@@ -35,6 +35,7 @@ public class Translation {
                 iteration.put("phrase",output);
                 iteration.put("code","en");
                 iteration.put("name","English");
+                iterationList.add(iteration);
                 input = output;
             }
             else {
