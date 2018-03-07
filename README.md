@@ -30,8 +30,6 @@ Fork the project and submit a PR and one of the maintainers will be in touch.
 
 * Nathan Butler - Developer / maintainer - [nathanbutler](https://github.com/nathanbutler)
 
-See also the list of [contributors](https://github.com/abatilo/dropwizard-template/contributors) who participated in this project.
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details

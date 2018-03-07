@@ -8,6 +8,12 @@ import java.io.IOException;
 import java.util.Random;
 
 public class Translation {
+    /**
+     * This method takes the phrase and the repeat integer and runs it through translate TIMES
+     * @param input String -  The phrase that the user sets
+     * @param times Int - Number of times they want to run it through the translator
+     * @return iterationList - The JSON list that is written with the results
+     */
     public JSONArray repeat2 (String input, int times) {
         JSONArray iterationList = new JSONArray();
         languageReader randLang = new languageReader();
@@ -69,6 +75,13 @@ public class Translation {
         return iterationList;
     }
 
+    /**
+     *
+     * @param input String -  The phrase that the user sets
+     * @param inCode The language code that the phrase is already in
+     * @param outCode The language code that the phrase wants to end up in
+     * @return output - String - the translation output of the phrase
+     */
     public String translate (String input, String inCode, String outCode){
         // Instantiates a client
         Translate translate = TranslateOptions.getDefaultInstance().getService();

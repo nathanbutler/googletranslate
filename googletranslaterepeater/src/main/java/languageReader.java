@@ -14,7 +14,8 @@ public class languageReader
     public static ArrayList<String> names = new ArrayList();
 
     /**
-     * @return
+     * Gets the array size from the json we just read
+     * @return the size of the amount of language options we have
      */
     public int getArraySize() {
         if(codes.isEmpty() || names.isEmpty()){
@@ -26,10 +27,14 @@ public class languageReader
         return codes.size();
     }
 
-    //Read the Languages from a JSON file.
+    /**
+     * This method will read the Json from the file we downloaded earlier but can also be replaced just a url of all the
+     * language codes
+     *
+     * @param file in put the file the json is stored and read it to get all the codes
+     */
     public static void readJson(String file)
     {
-        System.out.println("\n \n ---Gathering the list--- \n\n");
         JSONParser parser = new JSONParser();
         try
         {
@@ -38,13 +43,11 @@ public class languageReader
             for (Object lang : langs)
             {
                 JSONObject options = (JSONObject) lang;
-
                 String name = (String) options.get("name");
                 names.add(name);
 
                 String code = (String) options.get("code");
                 codes.add(code);
-
             }
 
         } catch (FileNotFoundException e) {
