@@ -22,10 +22,6 @@ java -jar googletranslaterepeater/root.jar server googletranslaterepater/local.y
 * [Guava](https://github.com/google/guava/wiki/Release23) - Utility functions
 * [Lombok](https://projectlombok.org/) - Annotations for less boilerplate code
 
-## Contributing
-
-Fork the project and submit a PR and one of the maintainers will be in touch.
-
 ## Authors
 
 * Nathan Butler - Developer / maintainer - [nathanbutler](https://github.com/nathanbutler)

@@ -42,7 +42,6 @@ public class Translation {
                 input = output;
             }
             else {
-
                 //Google Translate API has an error when the input code is the same as the output code.
                 do{
                     //Get a random number between the max index value and 0
@@ -68,10 +67,8 @@ public class Translation {
         }
         //Write JSON file
         try (FileWriter file = new FileWriter("iterations.json")) {
-
             file.write(iterationList.toJSONString());
             file.flush();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
