@@ -12,8 +12,8 @@ Requires Java 8 and Gradle 4.4 to be installed.
 ```
 git clone https://github.com/nathanbutler/googletranslate.git
 cd googletranslate
-./gradlew :dropwizard-template:clean :dropwizard-template:shadowJar
-java -jar dropwizard-template/root.jar server dropwizard-template/local.yaml
+ ./gradlew :googletranslaterepeater:clean :googletranslaterepeater:shadowJar
+java -jar googletranslaterepeater/root.jar server googletranslaterepater/local.yaml
 ```
 
 ## Built With

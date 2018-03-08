@@ -7,6 +7,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
 
+/**
+ * This will take the the phrase and int then
+ */
 public class Translation {
     /**
      * This method takes the phrase and the repeat integer and runs it through translate TIMES
@@ -16,7 +19,7 @@ public class Translation {
      */
     public JSONArray iterateTranslate (String input, int times) {
         JSONArray iterationList = new JSONArray();
-        languageReader randLang = new languageReader();
+        LanguageReader randLang = new LanguageReader();
         Random rand = new Random();
 
         //gets the max array size to choose a number below that
@@ -45,9 +48,8 @@ public class Translation {
                     //Get a random number between the max index value and 0
                     int random = rand.nextInt(max) + 0;
                     //get the language output code for the translation to run
-                    outCode = languageReader.codes.get(random);
-                    outName = languageReader.names.get(random);
-                    System.out.println("InCode: " + inCode + "  OutCode: " + outCode + " outName: " + outName);
+                    outCode = LanguageReader.codes.get(random);
+                    outName = LanguageReader.names.get(random);
                     //unless the code is the same or english then run it again.
                 } while (inCode == outCode || outCode == "en");
 
@@ -77,7 +79,7 @@ public class Translation {
     }
 
     /**
-     *
+     * The actual api call to google
      * @param input String -  The phrase that the user sets
      * @param inCode The language code that the phrase is already in
      * @param outCode The language code that the phrase wants to end up in
@@ -95,8 +97,8 @@ public class Translation {
                         Translate.TranslateOption.targetLanguage(outCode));
 
         String output = translation.getTranslatedText();
-        System.out.printf("Text: %s%n", input);
-        System.out.printf("Translation: %s%n", output);
+        //System.out.printf("Text: %s%n", input);
+        //System.out.printf("Translation: %s%n", output);
         //System.out.printf("Translation: %s%n", translation.getTranslatedText());
 
         return output;
