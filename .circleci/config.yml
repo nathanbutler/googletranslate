@@ -16,8 +16,8 @@ jobs:
 
     #working_directory: ~/repo
     #if running from line
-    #working_directory: /mnt/c/Users/neneb/Documents/GitHub/googletranslate
-    working_directory: /Users/neneb/Documents/GitHub/googletranslate
+    working_directory: /mnt/c/Users/neneb/Documents/GitHub/googletranslate
+    #working_directory: /Users/neneb/Documents/GitHub/googletranslate
 
 
     environment:
