@@ -1,6 +1,6 @@
 # Google Translate repeater
 
-Using Drop Wizard Google Translate API I am able to take a phrase and run it through the translator many times
+Using Drop Wizard and the Google Translate API I am able to take a phrase and run it through the translator many times
 It then read and returns json in languages.json and translate.json
 ## Getting Started
 

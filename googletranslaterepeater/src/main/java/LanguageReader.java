@@ -3,6 +3,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -19,7 +20,8 @@ public class LanguageReader
      */
     public int getArraySize() {
         if(codes.isEmpty() || names.isEmpty()){
-            readJson("C:\\Users\\neneb\\Documents\\GitHub\\googletranslate\\googletranslaterepeater\\src\\main\\java\\languages.json");
+            File file = new File("googletranslaterepeater/src/resources/languages.json");
+            readJson(file);
         }
         if(codes.size() == 0){
             return 104;
@@ -33,11 +35,12 @@ public class LanguageReader
      *
      * @param file in put the file the json is stored and read it to get all the codes
      */
-    public static void readJson(String file)
+    public static void readJson(File file)
     {
         JSONParser parser = new JSONParser();
         try
         {
+            //JSONArray langs = (JSONArray) parser.parse(new FileReader(file));
             JSONArray langs = (JSONArray) parser.parse(new FileReader(file));
 
             for (Object lang : langs)
