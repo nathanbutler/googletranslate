@@ -13,7 +13,7 @@ Requires Java 8 and Gradle 4.4 to be installed.
 git clone https://github.com/nathanbutler/googletranslate.git
 cd googletranslate
  ./gradlew :googletranslaterepeater:clean :googletranslaterepeater:shadowJar
-java -jar googletranslaterepeater/root.jar server googletranslaterepater/local.yaml
+java -jar googletranslaterepeater/root.jar server googletranslaterepeater/local.yaml
 ```
 
 ## Built With
