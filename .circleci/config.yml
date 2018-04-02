@@ -6,6 +6,7 @@ jobs:
     working_directory: ~/googletranslate
     steps:
       - checkout
+      - run: gradle
       - run: ./gradlew :googletranslaterepeater:clean :googletranslaterepeater:shadowJar
   test:
     docker:
