@@ -3,6 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/openjdk:8u162-jdk-node-browsers
+      working_directory: ~/googletranslate
     steps:
       - checkout
       - run: ./gradlew :googletranslaterepeater:clean :googletranslaterepeater:shadowJar
@@ -17,4 +18,3 @@ workflows:
   build_and_test:
     jobs:
       - build
-      - test
