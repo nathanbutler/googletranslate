@@ -20,11 +20,10 @@ jobs:
       branch: master
       codedeploy:
         googletranslate:
-          deployment_group: my-deployment-group
+          deployment_group: Bot
 workflows:
   version: 2
   build_run_deploy:
     jobs:
       - build
       - run
-      - deployment
