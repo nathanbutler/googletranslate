@@ -16,6 +16,7 @@ public class RootResource {
     public String root(@QueryParam("input") String input, @QueryParam("times") int times) {
         Translation tran = new Translation();
         String output;
+        //Does a quick check to see if there is the input
         if(input == null || times == 0){
             output="<!DOCTYPE html>\n" +
                     "<html>\n" +

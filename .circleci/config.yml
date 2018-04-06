@@ -15,6 +15,17 @@ jobs:
     steps:
       - checkout
       - run: gradle test
+  deployment:
+    staging:
+      branch: development
+      codedeploy:
+        googletranslate:
+          deployment_group: staging-instance-group
+    production:
+      branch: master
+      codedeploy:
+        googletranslate:
+          deployment_group: production-instance-group
   run:
     docker:
       - image: circleci/openjdk:8u162-jdk-node-browsers
@@ -24,7 +35,8 @@ jobs:
       - run: java -jar googletranslaterepeater/root.jar server googletranslaterepeater/local.yaml
 workflows:
   version: 2
-  build_run_deploy:
+  build_test_deploy:
     jobs:
       - build
       - test
+      - deploy
