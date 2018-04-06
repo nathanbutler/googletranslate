@@ -15,9 +15,22 @@ public class RootResource {
     @GET
     public String root(@QueryParam("input") String input, @QueryParam("times") int times) {
         Translation tran = new Translation();
-
-        String output = ""+ tran.iterateTranslate(input, times);
-        output = readJson(output);
+        String output;
+        if(input == null || times == 0){
+            output="<!DOCTYPE html>\n" +
+                    "<html>\n" +
+                    "<head>\n" +
+                    "<meta charset=\"UTF-8\">\n" +
+                    "<title>Google Translation</title>\n" +
+                    "</head>" +
+                    "<div class=\"body\" lang=\"en\">" +
+                    "<p> Please input a phrase and time in the url like this " +
+                    "<blockquote><i> ?times=4&input=Its a sunny day<i></blockquote></p></html>";
+        }
+        else {
+            output = ""+ tran.iterateTranslate(input, times);
+            output = readJson(output);
+        }
 
         return output;
     }

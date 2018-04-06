@@ -7,7 +7,7 @@ import static junit.framework.TestCase.assertEquals;
  */
 public class RootResourceTest {
         @Test
-    public static void addition_isCorrect() throws Exception {
+    public void addition_isCorrect() throws Exception {
             assertEquals(4, 2+2);
         }
 
