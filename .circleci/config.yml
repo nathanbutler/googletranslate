@@ -34,4 +34,3 @@ workflows:
     jobs:
       - build
       - test
-      - deployment
