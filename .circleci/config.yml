@@ -17,15 +17,10 @@ jobs:
       - run: gradle test
   deployment:
     staging:
-      branch: development
-      codedeploy:
-        googletranslate:
-          deployment_group: staging-instance-group
-    production:
       branch: master
       codedeploy:
         googletranslate:
-          deployment_group: production-instance-group
+          deployment_group: Bot
   run:
     docker:
       - image: circleci/openjdk:8u162-jdk-node-browsers
