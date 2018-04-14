@@ -5,8 +5,8 @@ jobs:
       - image: circleci/openjdk:8u162-jdk-node-browsers
     working_directory: ~/googletranslate
     override:
-      steps:
-        - run: sudo pip install awscli
+    steps:
+      - run: sudo pip install awscli
   build:
     docker:
       - image: circleci/openjdk:8u162-jdk-node-browsers
