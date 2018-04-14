@@ -30,7 +30,8 @@ jobs:
       - run: java -jar googletranslaterepeater/root.jar server googletranslaterepeater/local.yaml
 workflows:
   version: 2
-  build_test:
+  build_test_deployment:
     jobs:
       - build
       - test
+      - deployment
