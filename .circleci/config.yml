@@ -1,3 +1,0 @@
-dependencies:
-    override:
-        - sudo pip install awscli
