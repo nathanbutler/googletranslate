@@ -1,9 +1,24 @@
 version: 2
-dependencies:
-    override:
-        - sudo pip install awscli
-deployment:
-  prod:
-    branch: master
-    commands:
-      - aws s3 sync /home/ubuntu/googletranslate s3://nathan-butler.com --delete
+jobs:
+  build:
+    docker:
+      - image: circleci/openjdk:8u162-jdk-node-browsers
+    working_directory: ~/googletranslate
+    steps:
+      - checkout
+      - run: sudo pip install awscli
+      - run: gradle wrapper
+      - run: ./gradlew :googletranslaterepeater:clean :googletranslaterepeater:shadowJar
+  test:
+    docker:
+      - image: circleci/openjdk:8u162-jdk-node-browsers
+    working_directory: ~/googletranslate
+    steps:
+      - checkout
+      - run: gradle test
+workflows:
+  version: 2
+  build_test_deployment:
+    jobs:
+      - build
+      - test
